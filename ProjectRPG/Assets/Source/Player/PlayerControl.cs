@@ -1,24 +1,20 @@
 ﻿/// <summary>
 /// プレイヤーの基本的な処理
 /// </summary>
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
 
-    void Start () {
-        _rigidbody = GetComponent<Rigidbody2D>();
+    public void PlayerController(ref PlayerManager.PLAYER_STATUS PlayerStatus) {
+        Move(ref PlayerStatus._rigidbody);
+        jump(ref PlayerStatus.isGround , ref PlayerStatus._rigidbody);
     }
 
-    void Update () {
-        Move();
-        jump();
-    }
-
-    public void Move()
+    private void Move(ref Rigidbody2D _rigidbody)
     {
         var speed = 5.0f;
         var vx = speed * Input.GetAxis("Horizontal");
@@ -26,7 +22,7 @@ public class PlayerControl : MonoBehaviour
     }
 
 
-    public void jump() 
+    private void jump(ref bool isGround , ref Rigidbody2D _rigidbody) 
     {
         var jumpPower = 10.0f;
         if(Input.GetKeyDown(KeyCode.Space)){

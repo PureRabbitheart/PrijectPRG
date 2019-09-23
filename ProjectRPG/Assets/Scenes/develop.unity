@@ -406,7 +406,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1618482762}
   - component: {fileID: 1618482758}
-  - component: {fileID: 1618482757}
   - component: {fileID: 1618482760}
   - component: {fileID: 1618482761}
   - component: {fileID: 1618482759}
@@ -417,18 +416,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1618482757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618482756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 152d9aca970ba3e469c3854227bbc2c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1618482758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 5437733567652374216, guid: a73d349308c38304d9da51cd50dc12d0,
         type: 3}
       propertyPath: m_Name
-      value: test
+      value: BackGround
       objectReference: {fileID: 0}
     - target: {fileID: 7333463445240868796, guid: a73d349308c38304d9da51cd50dc12d0,
         type: 3}

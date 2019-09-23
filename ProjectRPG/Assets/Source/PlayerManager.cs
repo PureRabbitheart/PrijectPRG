@@ -3,17 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
-{
+{ 
 
-    // Start is called before the first frame update
-    void Start()
+    //プレイヤーのステータス管理
+    public struct PLAYER_STATUS
     {
-        
+        public bool isGround;
+        public Rigidbody2D _rigidbody;
     }
 
-    // Update is called once per frame
-    void Update()
+    public PLAYER_STATUS PlayerStatus;
+
+    PlayerControl _PlayerControl = new PlayerControl();
+
+    
+    private void Awake() 
     {
-        
+        PlayerStatus.isGround = false;
+        PlayerStatus._rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+
+    /// <summary>
+    /// 更新処理
+    /// </summary>
+    private void Update()
+    {
+        _PlayerControl.PlayerController(ref PlayerStatus);
     }
 }
