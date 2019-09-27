@@ -14,8 +14,10 @@ public class PlayerManager : MonoBehaviour
     //プレイヤーのステータス管理
     public struct PLAYER_STATUS
     {
-        public bool isGround;
-        public Rigidbody2D _rigidbody;
+        public bool isGround;//地面から足が離れているか
+        public Rigidbody2D _rigidbody;//物理エンジン
+
+        public Transform _transform;//ポジションや回転などの情報
     }
     public PLAYER_STATUS PlayerStatus;
 
@@ -29,6 +31,9 @@ public class PlayerManager : MonoBehaviour
     {
         PlayerStatus.isGround = true;
         PlayerStatus._rigidbody = GetComponent<Rigidbody2D>();
+        PlayerStatus._rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation; 
+        PlayerStatus._transform = GetComponent<Transform>();
+
     }
 
 
