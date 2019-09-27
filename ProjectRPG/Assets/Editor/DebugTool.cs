@@ -8,8 +8,6 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 
-using System.Collections;
-
 public static class DebugTool
 {
     private static readonly Type            TOOLBAR_TYPE                    = typeof( EditorGUI ).Assembly.GetType( "UnityEditor.Toolbar" );
@@ -47,7 +45,7 @@ public static class DebugTool
     }
 
     /// <summary>
-    /// 
+    /// ツールバーに表示　ボタンを押したらデバッグモードと本番モードを切り替える
     /// </summary>
     private static void OnGUI()
     {
@@ -70,6 +68,10 @@ public static class DebugTool
         
     }
 
+    /// <summary>
+    /// モードに応じてテキストを変更する
+    /// </summary>
+    /// <returns>表示する名前</returns>
     private static string ChangeText()
     {
         if( isDebug )

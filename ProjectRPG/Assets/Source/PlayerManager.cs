@@ -9,12 +9,13 @@ using UnityEditor.Experimental.UIElements;//Editor拡張で使うためのusing
 
 public class PlayerManager : MonoBehaviour
 { 
-    public BoxCollider2D _boxCollider2d;
 
     //プレイヤーのステータス管理
     public struct PLAYER_STATUS
     {
         public bool isGround;//地面から足が離れているか
+
+        public float fSpeed;
         public Rigidbody2D _rigidbody;//物理エンジン
 
         public Transform _transform;//ポジションや回転などの情報
@@ -53,7 +54,7 @@ public class PlayerManager : MonoBehaviour
         public override void OnInspectorGUI()
         {
             PlayerManager _playerManager = target as PlayerManager;
-            _playerManager._boxCollider2d = EditorGUILayout.ObjectField("発射位置を指定", _playerManager._boxCollider2d, typeof(BoxCollider2D), true) as BoxCollider2D;
+            // _playerManager._boxCollider2d = EditorGUILayout.ObjectField("発射位置を指定", _playerManager._boxCollider2d, typeof(BoxCollider2D), true) as BoxCollider2D;
             // p_GunBasic.fFireRate = EditorGUILayout.FloatField("弾打つ間隔", p_GunBasic.fFireRate);
             // EditorGUILayout.LabelField("拡散度");
             // p_GunBasic.fSpread = EditorGUILayout.Slider(p_GunBasic.fSpread, 0.0f, 1.0f);

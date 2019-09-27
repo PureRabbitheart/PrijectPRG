@@ -16,7 +16,7 @@ public class PlayerControl : MonoBehaviour
     /// <param name="PlayerStatus">プレイヤーの情報</param>
     public void PlayerController( ref PlayerManager.PLAYER_STATUS PlayerStatus ) 
     {
-        Move(ref PlayerStatus._transform);
+        Move( ref PlayerStatus._transform , PlayerStatus.fSpeed);
         //jump(ref PlayerStatus.isGround , ref PlayerStatus._rigidbody);
     }
     
@@ -24,20 +24,20 @@ public class PlayerControl : MonoBehaviour
     /// 移動の処理
     /// </summary>
     /// <param name="_rigidbody">物理エンジン</param>
-    private void Move( ref Transform _transform )
+    private void Move( ref Transform _transform　, float Speed )
     {
-        var speed =_transform.position.x;
-        testPos +=1;
-        Debug.Log(testPos);
-        if(Input.GetAxis( "Horizontal" ) > 0.2f)
+        var vx =_transform.position.x;
+
+        if(InputManager.GetAxisHorizontal() > 0.0f)
         {
-            speed = _transform.position.x + 0.1f;
+            vx = _transform.position.x + Speed;
         }
-        else if(Input.GetAxis( "Horizontal" ) < -0.2f)
+        else if(InputManager.GetAxisHorizontal() < -0.0f)
         {
-            speed = _transform.position.x + -0.1f;
+            vx = _transform.position.x + -Speed;
         }
-        _transform.position = new Vector2( speed , _transform.position.y );
+
+        _transform.position = new Vector2( vx , _transform.position.y );
     }
 
     /// <summary>

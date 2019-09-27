@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public static class InputManager
 {
     const float MIN_TILT_VALUE = 0.2f;
 
@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
     /// keyboard…[←] [→] [A] [D]
     /// GamePad …アナログスティック左
     /// </summary>
-    public float GetAxisHorizontal()
+    public static float GetAxisHorizontal()
     {
 
         //　→　と　Dキーを押したら
