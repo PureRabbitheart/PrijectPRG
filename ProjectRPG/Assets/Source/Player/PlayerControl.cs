@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour
     public void PlayerController( ref PlayerManager.PLAYER_STATUS PlayerStatus ) 
     {
         Move( ref PlayerStatus._transform , PlayerStatus.fSpeed , PlayerStatus.LayerObjectList);
-        //jump(ref PlayerStatus.isGround , ref PlayerStatus._rigidbody);
+        jump(ref PlayerStatus.isGround , ref PlayerStatus._rigidbody);
     }
     
     /// <summary>
@@ -98,23 +98,18 @@ public class PlayerControl : MonoBehaviour
     /// <param name="_rigidbody">物理エンジン</param>
     private void jump(ref bool isGround , ref Rigidbody2D _rigidbody) 
     {
-        var speed = 10.0f;
-        var xv = speed * Input.GetAxis("Horizontal");
-
-        _rigidbody.velocity = new Vector2(xv, Mathf.Max(-5.0f, _rigidbody.velocity.y));
-
         var jumpPower = 5.0f;
-        if(isGround == true && Input.GetKeyDown(KeyCode.Space))
+        if(isGround == true && InputManager.GetKeyDownByButtonA())
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpPower);
         }
-        if(isGround == false && _rigidbody.velocity.y > 0.0f && Input.GetKey(KeyCode.Space))
+        if(isGround == false && _rigidbody.velocity.y > 0.0f && InputManager.GetKeyByButtonA())
         {
-            _rigidbody.gravityScale = 0.5f;
+            _rigidbody.gravityScale = 1.0f;
         }
         else 
         {
-            _rigidbody.gravityScale = 1.0f;
+            _rigidbody.gravityScale = 1.5f;
         }
     }
 }

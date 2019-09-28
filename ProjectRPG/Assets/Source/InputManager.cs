@@ -78,4 +78,32 @@ public static class InputManager
         
         return 0;
     }
+
+    /// <summary>
+    /// keyboard…[Space] [x]
+    /// GamePad …Aボタン
+    /// bool型で [true] [false] で返す
+    /// </summary>
+    public static bool GetKeyDownByButtonA()
+    {
+        if(Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// keyboard…[Space] [x]
+    /// GamePad …Aボタン
+    /// bool型で [true] [false] で返す
+    /// </summary>
+    public static bool GetKeyByButtonA()
+    {
+        if(Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.Space) || Input.GetButton("Jump"))
+        {
+            return true;
+        }
+        return false;
+    }
 }
